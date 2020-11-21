@@ -9,7 +9,12 @@
       </div>
       <div class="right auth-right df-center">
         <div class="right-content">
-          <Title/>
+          <div class="title-block">
+            <h1 class="title">Good Lunch</h1>
+            <p class="blue-text">for you and your friends</p>
+            <p class="text">Choose the best place for lunch where you and your friends can eat deliciously,
+              relax from work and have a good time together</p>
+          </div>
           <transition
             name="component-fade"
             mode="out-in"
@@ -30,7 +35,6 @@
 </template>
 
 <script>
-import Title from '@/components/titel/Title';
 import Login from '@/components/auth/Login';
 import Registration from '@/components/auth/Registration';
 
@@ -46,7 +50,6 @@ export default {
     }
   },
   components: {
-    Title,
     Login,
     Registration
   },
