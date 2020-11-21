@@ -15,7 +15,7 @@
             class="modal-body"
             v-if="votingResult.result"
           >
-            <h3 class="blue-text">{{ votingResult.date }}</h3>
+            <h3 class="blue-text"><time>{{ votingResult.date }}</time></h3>
             <div
               class="voting"
               v-for="result in votingResult.result"
@@ -23,7 +23,7 @@
             >
               <p class="text">
                 at:
-                <span class="blue-text">{{ result.time }}</span>
+                <time class="blue-text">{{ result.time }}</time>
               </p>
               <div class="rating-wrapper">
                 <RatingList :places="result.rating"/>
@@ -37,7 +37,6 @@
           >
             No result (:
           </h3>
-
 
           <div class="modal-footer df-center">
             <button class="btn btn-modal" @click.stop="toggleModal">
@@ -132,7 +131,7 @@ h3.blue-text {
   text-decoration: underline;
 }
 
-span.blue-text {
+time.blue-text {
   letter-spacing: 0.1rem;
 }
 

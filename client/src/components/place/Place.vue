@@ -15,7 +15,7 @@
       </p>
       <div class="address-block">
         <span class="address">Address: </span>
-        <span class="address address-value">{{ place.address }}</span>
+        <address class="address address-value">{{ place.address }}</address>
       </div>
     </div>
     <PlaceActions :place="place"/>
@@ -70,6 +70,7 @@ export default {
   margin: 1rem 0;
   display: flex;
   justify-content: flex-end;
+  font-size: 15px;
 }
 
 .address {
@@ -78,11 +79,6 @@ export default {
 
 .address.address-value {
   font-weight: 700;
-  margin-left: 1rem;
+  margin-left: .2rem;
 }
 </style>
-<!--.count {-->
-<!--font-size: 30px;-->
-<!--color: #2f2f2f;-->
-<!--margin: 0 .1rem;-->
-<!--}-->

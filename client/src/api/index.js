@@ -2,7 +2,7 @@ import axios from 'axios';
 import getDataFromLocalStorage from '@/utils/getDataFromLocalStorage';
 
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL: 'http://localhost:5000/api',
   headers: {
     accept: 'application/json',
   },
