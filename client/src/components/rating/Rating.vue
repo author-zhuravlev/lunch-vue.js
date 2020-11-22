@@ -80,7 +80,7 @@ export default {
 .rating {
   color: #fff;
   background: #2f2f2f;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 5px;
 }
 
@@ -94,7 +94,7 @@ h3.title {
   margin: 0;
 }
 
-button.btn-reset {
+.btn.btn-reset {
   font-size: 20px;
   padding: .5rem 2rem;
   margin: 1rem 0 0 0;

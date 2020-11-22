@@ -1,6 +1,6 @@
 <template>
   <section class="auth df-center">
-    <div class="row">
+    <div class="row df-center">
       <div class="left auth-left">
         <img
           src="../assets/lunch.jpg"

@@ -154,8 +154,7 @@ form {
   background: #2f2f2f;
   margin-top: .5rem;
   border-radius: 5px;
-  padding: 1rem 2rem .5rem 2rem;
-  height: 100%;
+  padding: 1rem 1.5rem .5rem 1.5rem;
 }
 
 .wrapper {

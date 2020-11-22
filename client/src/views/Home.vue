@@ -46,16 +46,14 @@ export default {
   width: 100%;
 }
 
-.right.places-right {
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 .right-content.places-right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   background: none;
+  height: 100vh;
+  overflow: auto;
 }
 
 .left.places-left {
@@ -98,12 +96,13 @@ export default {
     max-width: none;
   }
 
-  .title {
-    font-size: 28px;
-  }
-
   .modal-container {
     width: 90%;
+  }
+
+  .rating-item {
+    font-size: 16px;
+    padding: .5rem;
   }
 }
 
@@ -111,9 +110,8 @@ export default {
   main.main {
     height: 100%;
   }
-
-  .container {
-    max-width: none;
+  .right-content.places-right-content {
+    height: 100%;
   }
 
   .row {
@@ -131,15 +129,6 @@ export default {
 
   .places-list {
     height: 500px;
-  }
-
-  .address {
-    font-size: 15px;
-  }
-
-  .rating-item {
-    font-size: 16px;
-    padding: .5rem;
   }
 
   input.search {

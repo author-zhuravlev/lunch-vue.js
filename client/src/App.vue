@@ -107,9 +107,6 @@ main {
 
 .right {
   width: 40%;
-  border-top: 1px solid #2f2f2f;
-  border-right: 1px solid #2f2f2f;
-  border-bottom: 1px solid #2f2f2f;
 }
 
 .right-content {
@@ -128,14 +125,11 @@ main {
 
 .blue-text {
   font-size: 20px;
-  letter-spacing: .3rem;
-  word-spacing: .5rem;
   text-align: center;
   color: #74b0e9;
 }
 
 .text {
-  font-size: 18px;
   word-wrap: break-word;
   color: #999;
   margin: 1rem 0 0 0;
@@ -144,12 +138,15 @@ main {
 }
 
 form {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .group {
   margin-bottom: 1rem;
   color: #74b0e9;
+}
+.group:last-child{
+  margin-bottom: 0rem;
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
@@ -224,7 +221,7 @@ input {
 .rating-wrapper {
   margin-top: .5rem;
   overflow: auto;
-  height: 135px;
+  height: 132px;
 }
 
 .error {
@@ -289,78 +286,18 @@ input {
   opacity: 0;
 }
 
-@media (max-width: 1480px) {
-  .container {
-    max-width: 1300px;
-  }
-}
-
-@media (max-width: 1380px) {
-  .container {
-    max-width: 1200px;
-  }
-
-  .title {
-    font-size: 45px;
-  }
-
-  form {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 1280px) {
-  .container {
-    max-width: 1180px;
-  }
-
-  input.input {
-    font-size: 17px;
-    padding: .5rem 0;
-  }
-
-  .label-input {
-    font-size: 17px;
-  }
-
-  .text {
-    margin-bottom: 0;
-  }
-}
-
 @media (max-width: 1200px) {
   .container {
-    max-width: 970px;
-  }
-
-  .text {
-    display: none;
-  }
-
-  .title {
-    font-size: 35px;
-  }
-
-  .blue-text {
-    font-size: 16px;
-    letter-spacing: 0;
-    word-spacing: 0;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: .3rem 1rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .container {
-    max-width: 750px;
+    max-width: 1140px;
   }
 
   .title {
     font-size: 28px;
     margin: .5rem 0;
+  }
+
+  .text {
+    font-size: 15px;
   }
 
   .blue-text {
@@ -377,7 +314,6 @@ input {
 
   input.input {
     font-size: 15px;
-    padding: .2rem 0;
   }
 
   .label-input {
@@ -385,8 +321,22 @@ input {
   }
 
   .btn {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  input.input {
+    padding: .2rem 0;
+  }
+
+  .btn {
     font-size: 12px;
-    padding: .3rem;
+    padding: .5rem;
   }
 }
 
@@ -415,13 +365,15 @@ input {
     font-size: 18px;
   }
 
-  form {
-    padding: 1.5rem;
+  .btn {
+    font-size: 12px;
   }
+}
 
-  .text {
-    display: block;
-    font-size: 15px;
+@media (max-width: 540px) {
+  .btn {
+    font-size: 12px;
+    padding: .4rem .6rem;
   }
 }
 </style>
