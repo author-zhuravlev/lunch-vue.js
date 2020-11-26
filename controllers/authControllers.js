@@ -18,32 +18,32 @@ module.exports.login = async (req, res) => {
 
     const candidate = await User.findOne({email});
 
-    if (candidate) {
-      const result = bcrypt.compareSync(password, candidate.password);
-
-      if (result) {
-        const {
-          newAccessToken,
-          newRefreshToken,
-        } = generateTokens(candidate._id);
-
-        await updateRefreshTokenInDB(
-          { _id: candidate._id},
-          newRefreshToken
-        );
-
-        setRefreshTokenCookie(res, newRefreshToken);
-
-        res.status(200).json({
-          accessToken: `Bearer ${newAccessToken}`,
-          placesStatus: candidate.placesStatus
-        });
-      } else {
-        res.status(400).json({message: config.get('info').incorrectFormData});
-      }
-    } else {
-      res.status(400).json({message: config.get('info').notFound});
+    if (!candidate) {
+      return res.status(400).json({message: config.get('info').notFound});
     }
+
+    const result = bcrypt.compareSync(password, candidate.password);
+
+    if (!result) {
+      return res.status(400).json({message: config.get('info').incorrectFormData});
+    }
+
+    const {
+      newAccessToken,
+      newRefreshToken,
+    } = generateTokens(candidate._id);
+
+    await updateRefreshTokenInDB(
+      {_id: candidate._id},
+      newRefreshToken
+    );
+
+    setRefreshTokenCookie(res, newRefreshToken);
+
+    res.status(200).json({
+      accessToken: `Bearer ${newAccessToken}`,
+      placesStatus: candidate.placesStatus
+    });
   } catch (err) {
     errorHandler(res, err);
   }
@@ -61,31 +61,31 @@ module.exports.registration = async (req, res) => {
       return res.status(409).json({
         message: 'This user already exists!'
       });
-    } else {
-      const hashedPassword = await bcrypt.hash(password, 12);
-
-      const user = new User({
-        name,
-        email,
-        password: hashedPassword
-      });
-
-      const {
-        newAccessToken,
-        newRefreshToken,
-      } = generateTokens(user._id);
-
-      user.refreshToken = newRefreshToken;
-
-      const savedUser = await user.save();
-
-      setRefreshTokenCookie(res, newRefreshToken);
-
-      res.status(201).json({
-        accessToken: `Bearer ${newAccessToken}`,
-        placesStatus: savedUser.placesStatus
-      });
     }
+
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    const user = new User({
+      name,
+      email,
+      password: hashedPassword
+    });
+
+    const {
+      newAccessToken,
+      newRefreshToken,
+    } = generateTokens(user._id);
+
+    user.refreshToken = newRefreshToken;
+
+    const savedUser = await user.save();
+
+    setRefreshTokenCookie(res, newRefreshToken);
+
+    res.status(201).json({
+      accessToken: `Bearer ${newAccessToken}`,
+      placesStatus: savedUser.placesStatus
+    });
   } catch (err) {
     errorHandler(res, err);
   }
