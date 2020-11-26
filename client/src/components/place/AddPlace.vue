@@ -122,10 +122,14 @@ export default {
           dislikesCount: this.dislikesCount
         });
 
-        this.clearFields();
+        this.clear();
       } catch (err) {
-        this.clearFields();
+        this.clear();
       }
+    },
+    clear() {
+      this.clearFields();
+      this.$v.$reset();
     },
     clearFields() {
       const fields = this.$data;
